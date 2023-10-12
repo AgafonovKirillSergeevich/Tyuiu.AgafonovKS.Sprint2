@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Tyuiu.AgafonovKS.Sprint2.Task5.V8.Lib;
+using Tyuiu.AgafonovKS.Sprint2.Task6.V1.Lib;
 
-namespace Tyuiu.AgafonovKS.Sprint2.Task5.V8
+namespace Tyuiu.AgafonovKS.Sprint2.Task6.V1
 {
     internal class Program
     {
@@ -18,33 +18,37 @@ namespace Tyuiu.AgafonovKS.Sprint2.Task5.V8
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* Спринт #2                                                               *");
             Console.WriteLine("* Тема: Оператор switch                                                   *");
-            Console.WriteLine("* Задание #5                                                              *");
-            Console.WriteLine("* Вариант #8                                                              *");
+            Console.WriteLine("* Задание #6                                                              *");
+            Console.WriteLine("* Вариант #1                                                              *");
             Console.WriteLine("* Выполнил: Агафонов Кирилл Сергеевич | ИИПб-23-1                         *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* УСЛОВИЕ:                                                                *");
-            Console.WriteLine("* Написать программу, которая использует оператор switch вычисляет        *");
-            Console.WriteLine("* требуемое значение и возвращает результат.                              *");
-            Console.WriteLine("* Дата некоторого дня определяется двумя натуральными числами:            *");
-            Console.WriteLine("* m (порядковый номер месяца) и n (число).                                *");
-            Console.WriteLine("* По заданным m и n определить дату предыдущего дня                       *");
-            Console.WriteLine("* (принять, что m и n не определяют 1 января).                            *");
+            Console.WriteLine("*Написать программу, которая использует сокращенную форму записи оператора*");
+            Console.WriteLine("* switch вычисляет требуемое значение и возвращает результат.             *");
+            Console.WriteLine("*По данному номеру месяца, определите количество дней в этом месяце.      *");
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            Console.WriteLine("Введите число (1 - 31): ");
-            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите номер месяца: ");
+            int numMouth = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Введите месяц (1 - январь, 2 - февраль, и так далее): ");
-            int m = int.Parse(Console.ReadLine());           
+            string res;
+
+            if ((numMouth < 1) || (numMouth > 12))
+            {
+                res = "Введено неверное значение!";
+            }
+            else
+            {
+                res = "Дней в этом месяце: " + ds.FindMonthDaysCount(numMouth);
+            }
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
-
-            string result = ds.FindDateOfPreviousDay(m, n);
-            Console.WriteLine(result);
+           
+            Console.WriteLine(res);
 
             Console.ReadKey();
         }
